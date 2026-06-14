@@ -1,0 +1,52 @@
+{
+  "name": "bea-n-vscode",
+  "displayName": "bea-n",
+  "description": "Local selected-text wrapper for the bea-n path/message/device evidence case former.",
+  "version": "2026.1.0",
+  "license": "MIT",
+  "publisher": "newssourcecrawler",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/newssourcecrawler/bea-n-vscode"
+  },
+  "icon": "images/icon.png",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:bean.readSelectedText"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "bean.readSelectedText",
+        "title": "Bea-N: Read Selected Text"
+      }
+    ],
+    "configuration": {
+      "title": "bea-n",
+      "properties": {
+        "beaN.binaryPath": {
+          "type": "string",
+          "default": "",
+          "description": "Optional path to the bea-n CLI. If empty, the extension checks ~/.local/bin/bea-n, /opt/homebrew/bin/bea-n, and /usr/local/bin/bea-n."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@types/vscode": "^1.90.0",
+    "@vscode/vsce": "^3.9.2",
+    "typescript": "^5.4.5"
+  }
+}
